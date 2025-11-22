@@ -8,26 +8,7 @@ import argparse
 from argparse import ArgumentParser
 import os
 from pytorch_lightning.loggers.neptune import NeptuneLogger
-# from pytorch_lightning.loggers.base import DummyLogger
-from pytorch_lightning.loggers import Logger
-
-class DummyLogger(Logger):
-    def __init__(self):
-        super().__init__()
-    
-    @property
-    def name(self):
-        return "DummyLogger"
-    
-    @property
-    def version(self):
-        return "0.1"
-    
-    def log_metrics(self, metrics, step):
-        pass
-    
-    def log_hyperparams(self, params):
-        pass
+from pytorch_lightning.loggers.base import DummyLogger
 import pytorch_lightning as pl
 from sklearn.metrics import normalized_mutual_info_score as NMI
 from sklearn.metrics import adjusted_rand_score as ARI
